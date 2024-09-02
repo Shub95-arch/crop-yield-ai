@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government News for Farmers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .article-container {
+            position: relative;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+        }
+        .article-container:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .article-container:hover .overlay {
+            opacity: 1;
+        }
+        .overlay-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-roboto">
+    <header class="bg-green-700 text-white py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-bold">Farmer's News</h1>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="index.php" class="hover:underline">Home</a></li>
+                    <li><a href="#" class="hover:underline">About</a></li>
+                    <li><a href="#" class="hover:underline">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto mt-8">
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-green-700 mb-4">Latest News</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <article class="article-container bg-white p-6 rounded-lg shadow-md hover:cursor-pointer">
+                    <div class="relative h-64 mb-4 rounded-lg overflow-hidden">
+                        <img src="imgs/images.jpg" alt="A farmer working in a field" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="overlay">
+                            <div class="overlay-text">Read More</div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">New Subsidy Announced for Organic Farming</h3>
+                    <i>Date: September 1, 2024</i>
+                    <br><br>
+                    <p class="text-gray-700">The government has announced a new subsidy for farmers who are practicing organic farming. This initiative aims to promote sustainable agriculture.</p>
+                </article>
+                <article class="article-container bg-white p-6 rounded-lg shadow-md hover:cursor-pointer">
+                    <div class="relative h-64 mb-4 rounded-lg overflow-hidden">
+                        <img src="imgs/research.jpeg" alt="A farmer working in a field" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="overlay">
+                            <div class="overlay-text">Read More</div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Increased Funding for Agricultural Research and Development</h3>
+                    <i>Date: August 25, 2024</i>
+                    <br><br>
+                    <p class="text-gray-700">The Ministry of Agriculture has allocated an additional $50 million to agricultural research and development. This funding will support research on crop disease resistance, soil health, and advanced farming technologies. Farmers can expect new innovations and practices to enhance crop yields and reduce losses. Research results will be made available through local agricultural extension offices.</p>
+                </article>
+                <article class="article-container bg-white p-6 rounded-lg shadow-md hover:cursor-pointer">
+                    <div class="relative h-64 mb-4 rounded-lg overflow-hidden">
+                        <img src="imgs/modern.webp" alt="A farmer working in a field" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="overlay">
+                            <div class="overlay-text">Read More</div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Low-Interest Loans for Modern Farming Equipment</h3>
+                    <i>Date: August 20, 2024</i>
+                    <br><br>
+                    <p class="text-gray-700">Farmers can now access low-interest loans for purchasing modern farming equipment under the new loan scheme announced by the government. The scheme offers interest rates as low as 3% for loans used to acquire machinery such as tractors, harvesters, and irrigation systems. The application process is streamlined, and loans can be applied for online through the Ministry of Agriculture's website.</p>
+                </article>
+                <article class="article-container bg-white p-6 rounded-lg shadow-md hover:cursor-pointer">
+                    <div class="relative h-64 mb-4 rounded-lg overflow-hidden">
+                        <img src="imgs/Drone-Agriculture..jpg" alt="A farmer working in a field" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="overlay">
+                            <div class="overlay-text">Read More</div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2"> Free Workshops on Advanced Farming Techniques</h3>
+                    <i>Date: August 15, 2024</i>
+                    <br><br>
+                    <p class="text-gray-700">The government is organizing a series of free workshops across the country to educate farmers on advanced farming techniques. Topics will include precision agriculture, soil health management, and climate-smart practices. These workshops aim to equip farmers with the knowledge and skills needed to improve productivity and sustainability. The schedule and registration details for the workshops will be available on the Ministry's website.</p>
+                </article>
+                <article class="article-container bg-white p-6 rounded-lg shadow-md hover:cursor-pointer">
+                    <div class="relative h-64 mb-4 rounded-lg overflow-hidden">
+                        <img src="imgs/insurance.jpg" alt="A farmer working in a field" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="overlay">
+                            <div class="overlay-text">Read More</div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Expanded Crop Insurance Coverage</h3>
+                    <i>Date: August 10, 2024</i>
+                    <br><br>
+                    <p class="text-gray-700">In response to recent weather-related challenges, the government has expanded the crop insurance coverage to include more crops and higher coverage limits. Farmers affected by extreme weather events such as droughts and floods will benefit from increased financial protection. The revised insurance policies will be available from September 1, 2024, through local insurance agents.</p>
+                </article>
+                <article class="article-container bg-white p-6 rounded-lg shadow-md hover:cursor-pointer">
+                    <div class="relative h-64 mb-4 rounded-lg overflow-hidden">
+                        <img src="imgs/green.jpg" alt="A farmer working in a field" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="overlay">
+                            <div class="overlay-text">Read More</div>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Tax Incentives for Green Energy Projects on Farms</h3>
+                    <i>Date: August 5, 2024</i>
+                    <br><br>
+                    <p class="text-gray-700">Farmers investing in green energy projects, such as solar panels and wind turbines, can now benefit from new tax incentives. The government offers tax credits for the installation of renewable energy systems on farms, aiming to reduce energy costs and promote sustainability. Details on eligibility and application procedures can be obtained from the Department of Energy's website.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-green-700 text-white py-4 mt-12">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2023 Farmer's News. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Shopping</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .image-container {
+            position: relative;
+            width: 100%;
+            padding-top: 75%; 
+            overflow: hidden;
+            border-radius: 0.5rem; 
+        }
+        .image-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain; 
+        }
+    </style>
+</head>
+<body class="bg-gray-10 font-roboto">
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-gray-800">Farmer Land</div>
+            <div class="relative w-1/2">
+                <input type="text" class="w-full border border-gray-300 rounded-full py-2 px-4 pl-10 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Search for products">
+                <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+            </div>
+            <div>
+                <a href="#" class="text-gray-800 hover:text-blue-500 mx-2">Login</a>
+                <a href="#" class="text-gray-800 hover:text-blue-500 mx-2">Register</a>
+                <a href="#" class="text-gray-800 hover:text-blue-500 mx-2"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-6">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">Farming Products</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <div class="image-container">
+                    <img src="imgs/512aGHUoDwL._SL1300_.jpg" alt="Product Image">
+                </div>
+                <div class="mt-4">
+                    <h2 class="text-lg font-semibold text-gray-800">Picaxe</h2>
+                    <p class="text-gray-600 mt-2">₹1200</p>
+                    <p>40% off</p>
+                    <button class="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">Add to Cart</button>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <div class="image-container">
+                    <img src="imgs/51j9waufaAL._AC_UL480_FMwebp_QL65_.webp" alt="Product Image">
+                </div>
+                <div class="mt-4">
+                    <h2 class="text-lg font-semibold text-gray-800">Shovel</h2>
+                    <p class="text-gray-600 mt-2">₹899</p>
+                    <p>58% off</p>
+                    <button class="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">Add to Cart</button>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <div class="image-container">
+                    <img src="imgs/61IqrICHKrL._SL1500_.jpg" alt="Product Image">
+                </div>
+                <div class="mt-4">
+                    <h2 class="text-lg font-semibold text-gray-800">Axe</h2>
+                    <p class="text-gray-600 mt-2">₹1399</p>
+                    <p>35% off</p>
+                    <button class="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">Add to Cart</button>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <div class="image-container">
+                    <img src="imgs/61IScHqblwL._SL1500_.jpg" alt="Product Image">
+                </div>
+                <div class="mt-4">
+                    <h2 class="text-lg font-semibold text-gray-800">Picaxe</h2>
+                    <p class="text-gray-600 mt-2">₹1199</p>
+                    <p>48% off</p>
+                    <button class="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">Add to Cart</button>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <div class="image-container">
+                    <img src="imgs/61mZlHgty5L._SL1500_.jpg" alt="Product Image">
+                </div>
+                <div class="mt-4">
+                    <h2 class="text-lg font-semibold text-gray-800">Axe</h2>
+                    <p class="text-gray-600 mt-2">₹999</p>
+                    <p>60% off</p>
+                    <button class="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">Add to Cart</button>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <div class="image-container">
+                    <img src="imgs/61WapQOFqkL._SL1500_.jpg" alt="Product Image">
+                </div>
+                <div class="mt-4">
+                    <h2 class="text-lg font-semibold text-gray-800">Axe</h2>
+                    <p class="text-gray-600 mt-2">₹799</p>
+                    <p>38% off</p>
+                    <button class="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">Add to Cart</button>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <div class="image-container">
+                    <img src="imgs/pest.jpg" alt="Product Image">
+                </div>
+                <div class="mt-4">
+                    <h2 class="text-lg font-semibold text-gray-800">Pesticide</h2>
+                    <p class="text-gray-600 mt-2">₹399</p>
+                    <p>28% off</p>
+                    <button class="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">Add to Cart</button>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <div class="image-container">
+                    <img src="imgs/pestpump.jpg" alt="Product Image">
+                </div>
+                <div class="mt-4">
+                    <h2 class="text-lg font-semibold text-gray-800">Pesticide Sprayer</h2>
+                    <p class="text-gray-600 mt-2">₹11399</p>
+                    <p>15% off</p>
+                    <button class="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">Add to Cart</button>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <div class="image-container">
+                    <img src="imgs/pest1.jpg" alt="Product Image">
+                </div>
+                <div class="mt-4">
+                    <h2 class="text-lg font-semibold text-gray-800">Pesticide</h2>
+                    <p class="text-gray-600 mt-2">₹499</p>
+                    <p>29% off</p>
+                    <button class="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">Add to Cart</button>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <div class="image-container">
+                    <img src="imgs/pestpump1.jpg" alt="Product Image">
+                </div>
+                <div class="mt-4">
+                    <h2 class="text-lg font-semibold text-gray-800">Pesticide Sprayer</h2>
+                    <p class="text-gray-600 mt-2">₹13399</p>
+                    <p>8% off</p>
+                    <button class="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">Add to Cart</button>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <div class="image-container">
+                    <img src="imgs/waterpump.jpg" alt="Product Image">
+                </div>
+                <div class="mt-4">
+                    <h2 class="text-lg font-semibold text-gray-800">water pump</h2>
+                    <p class="text-gray-600 mt-2">₹22499</p>
+                    <p>16% off</p>
+                    <button class="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">Add to Cart</button>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-md">
+                <div class="image-container">
+                    <img src="imgs/waterpump1.jpg" alt="Product Image">
+                </div>
+                <div class="mt-4">
+                    <h2 class="text-lg font-semibold text-gray-800">Water Pump</h2>
+                    <p class="text-gray-600 mt-2">₹28799</p>
+                    <p>19% off</p>
+                    <button class="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

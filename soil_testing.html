@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soil Testing Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .form-group button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+        .form-group button:hover {
+            background-color: #218838;
+        }
+        .report, .recommendations {
+            margin-top: 30px;
+        }
+        .report h2, .recommendations h3 {
+            border-bottom: 2px solid #28a745;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .report p, .recommendations li {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .chart-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .chart {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .recommendations {
+            padding: 20px;
+            background-color: #e9f7ef;
+            border-radius: 8px;
+            border: 1px solid #d4edda;
+        }
+        .recommendations ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .recommendations li {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 600px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        /* Image styles */
+        .image-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .image-container img {
+            max-width: 80%;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .image-container img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Soil Testing Report</h1>
+        
+        <form id="soilTestForm">
+            <div class="form-group">
+                <label for="phLevel">pH Level:</label>
+                <input type="number" id="phLevel" name="phLevel" step="0.1" min="0" max="14" required>
+            </div>
+            <div class="form-group">
+                <label for="nitrogen">Nitrogen (ppm):</label>
+                <input type="number" id="nitrogen" name="nitrogen" step="0.1" min="0" required>
+            </div>
+            <div class="form-group">
+                <label for="phosphorus">Phosphorus (ppm):</label>
+                <input type="number" id="phosphorus" name="phosphorus" step="0.1" min="0" required>
+            </div>
+            <div class="form-group">
+                <label for="potassium">Potassium (ppm):</label>
+                <input type="number" id="potassium" name="potassium" step="0.1" min="0" required>
+            </div>
+            <div class="form-group">
+                <label for="soilType">Soil Type:</label>
+                <select id="soilType" name="soilType" required>
+                    <option value="" disabled selected>Select soil type</option>
+                    <option value="clay">Clay</option>
+                    <option value="silt">Silt</option>
+                    <option value="sand">Sand</option>
+                    <option value="loam">Loam</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="cropType">Crop Type:</label>
+                <select id="cropType" name="cropType" required>
+                    <option value="" disabled selected>Select crop type</option>
+                    <option value="wheat">Wheat</option>
+                    <option value="corn">Corn</option>
+                    <option value="soybean">Soybean</option>
+                    <option value="potato">Potato</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="disease">Select Disease:</label>
+                <select id="disease" name="disease">
+                    <option value="" disabled selected>Select a disease</option>
+                    <option value="rust">Rust</option>
+                    <option value="blight">Blight</option>
+                    <option value="powderyMildew">Powdery Mildew</option>
+                    <option value="rootRot">Root Rot</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="button" onclick="generateReport()">Generate Report</button>
+                <button type="button" onclick="showContactForm()">Contact Expert</button>
+            </div>
+        </form>
+
+        <div class="report" id="report">
+            <!-- Soil report will be displayed here -->
+            <p>Note: For a detailed soil report, please fill out the expert contact form. For more details, you can use the chatbox.</p>
+            <div class="image-container">
+                <img src="imgs/sample.png" alt="Soil Testing Research Paper">
+            </div>
+        </div>
+
+        <div class="chart-container" id="chartContainer">
+            <!-- Chart will be displayed here -->
+            <canvas id="chart" class="chart"></canvas>
+        </div>
+
+        <div class="recommendations" id="recommendations">
+            <!-- Recommendations will be displayed here -->
+        </div>
+
+        <!-- Expert Contact Modal -->
+        <div id="contactModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeContactForm()">&times;</span>
+                <h2>Contact an Expert</h2>
+                <p>To receive a detailed soil report, please fill out the form below. For additional details or immediate assistance, you can use our chatbox.</p>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location:</label>
+                        <input type="text" id="location" name="location" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone:</label>
+                        <input type="text" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        function generateReport() {
+            // Get form values
+            const phLevel = parseFloat(document.getElementById('phLevel').value);
+            const nitrogen = parseFloat(document.getElementById('nitrogen').value);
+            const phosphorus = parseFloat(document.getElementById('phosphorus').value);
+            const potassium = parseFloat(document.getElementById('potassium').value);
+            const soilType = document.getElementById('soilType').value;
+            const cropType = document.getElementById('cropType').value;
+            const disease = document.getElementById('disease').value;
+
+            // Simple report generation logic
+            let reportHtml = `
+                <h2>Soil Test Report</h2>
+                <p><strong>pH Level:</strong> ${phLevel}</p>
+                <p><strong>Nitrogen:</strong> ${nitrogen} ppm</p>
+                <p><strong>Phosphorus:</strong> ${phosphorus} ppm</p>
+                <p><strong>Potassium:</strong> ${potassium} ppm</p>
+                <p><strong>Soil Type:</strong> ${soilType}</p>
+                <p><strong>Crop Type:</strong> ${cropType}</p>
+                <p><strong>Disease (if any):</strong> ${disease ? disease : 'None'}</p>
+            `;
+            
+            // Display the report
+            document.getElementById('report').innerHTML = reportHtml;
+            
+            // Display the chart
+            displayChart(nitrogen, phosphorus, potassium);
+            
+            // Display recommendations
+            displayRecommendations(nitrogen, phosphorus, potassium, disease, cropType);
+        }
+        
+        function displayChart(nitrogen, phosphorus, potassium) {
+            const ctx = document.getElementById('chart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Nitrogen', 'Phosphorus', 'Potassium'],
+                    datasets: [{
+                        label: 'Soil Nutrients (ppm)',
+                        data: [nitrogen, phosphorus, potassium],
+                        backgroundColor: ['#ff6384', '#36a2eb', '#ffce56'],
+                        borderColor: ['#ff6384', '#36a2eb', '#ffce56'],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        function displayRecommendations(nitrogen, phosphorus, potassium, disease, cropType) {
+            let recommendations = [];
+
+            if (nitrogen < 20) {
+                recommendations.push('Consider applying a nitrogen-rich fertilizer, such as urea or ammonium nitrate.');
+            }
+            if (phosphorus < 15) {
+                recommendations.push('Add phosphorus fertilizer like superphosphate or bone meal to improve phosphorus levels.');
+            }
+            if (potassium < 30) {
+                recommendations.push('Apply potassium-rich fertilizers, such as potassium chloride or potassium sulfate.');
+            }
+            if (phLevel < 6.0) {
+                recommendations.push('Consider using lime to increase soil pH to optimal levels.');
+            } else if (phLevel > 7.5) {
+                recommendations.push('Use sulfur or ammonium-based fertilizers to lower soil pH.');
+            }
+
+            // Disease-specific recommendations
+            const diseaseRecommendations = {
+                'rust': 'Apply fungicides such as copper-based solutions or systemic fungicides to control rust.',
+                'blight': 'Use fungicides and remove infected plant material. Improve air circulation around plants.',
+                'powderyMildew': 'Apply sulfur or potassium bicarbonate. Ensure adequate airflow and avoid overhead watering.',
+                'rootRot': 'Improve soil drainage and consider using fungicidal soil treatments.'
+            };
+
+            if (disease && diseaseRecommendations[disease]) {
+                recommendations.push(diseaseRecommendations[disease]);
+            }
+
+            // Crop-specific recommendations
+            const cropRecommendations = {
+                'wheat': 'Ensure adequate nitrogen and phosphorus. Wheat prefers well-drained soil with a pH of 6.0-7.0.',
+                'corn': 'High nitrogen and potassium are essential. Corn requires a lot of sunlight and well-drained soil.',
+                'soybean': 'Soybeans benefit from balanced nutrients and a pH of 6.0-7.0. Consider inoculating seeds with rhizobium.',
+                'potato': 'Potatoes need high potassium levels and a pH of 5.5-6.5. Ensure good drainage and avoid over-watering.'
+            };
+
+            if (cropType && cropRecommendations[cropType]) {
+                recommendations.push(cropRecommendations[cropType]);
+            }
+
+            let recHtml = '<h3>Recommendations:</h3>';
+            if (recommendations.length > 0) {
+                recHtml += '<ul>';
+                recommendations.forEach(rec => {
+                    recHtml += `<li>${rec}</li>`;
+                });
+                recHtml += '</ul>';
+            } else {
+                recHtml += '<p>Your soil nutrient levels are optimal. No additional fertilizers or amendments are currently recommended.</p>';
+            }
+
+            document.getElementById('recommendations').innerHTML = recHtml;
+        }
+
+        function showContactForm() {
+            document.getElementById('contactModal').style.display = 'block';
+        }
+
+        function closeContactForm() {
+            document.getElementById('contactModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('contactModal')) {
+                document.getElementById('contactModal').style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
